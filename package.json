@@ -1,0 +1,27 @@
+{
+  "name": "gridwise-llm-energy-optimizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/israt2024/gridwise-llm-energy-optimizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/israt2024/gridwise-llm-energy-optimizer/issues"
+  },
+  "homepage": "https://github.com/israt2024/gridwise-llm-energy-optimizer#readme",
+  "dependencies": {
+    "dotenv": "^18.0.0",
+    "express": "^5.2.1",
+    "openai": "^7.18.0"
+  }
+}

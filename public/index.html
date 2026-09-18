@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GridWise Energy Optimizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>GridWise Energy Optimizer</h1>
+    <p>LLM-assisted 24-hour energy scheduling</p>
+
+    <label>Scenario ID</label>
+    <input id="scenarioId" value="GRID-101">
+
+    <label>Operator Notes</label>
+    <textarea id="notes" rows="6"
+      placeholder="Enter operator notes..."></textarea>
+
+    <button onclick="optimizeEnergy()">Optimize Energy</button>
+
+    <h2>Result</h2>
+    <pre id="result"></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
