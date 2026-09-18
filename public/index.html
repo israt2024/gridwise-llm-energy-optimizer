@@ -3,28 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GridWise Energy Optimizer</title>
+
+  <title>GridWise | Energy Optimizer</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1>GridWise Energy Optimizer</h1>
-    <p>LLM-assisted 24-hour energy scheduling</p>
 
-    <label>Scenario ID</label>
-    <input id="scenarioId" value="GRID-101">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚡</div>
+      <div>
+        <h1>GridWise</h1>
+        <span>LLM Energy Optimizer</span>
+      </div>
+    </div>
 
-    <label>Operator Notes</label>
-    <textarea id="notes" rows="6"
-      placeholder="Enter operator notes..."></textarea>
+    <div class="status">
+      <span class="status-dot"></span>
+      System Online
+    </div>
+  </header>
 
-    <button onclick="optimizeEnergy()">Optimize Energy</button>
 
-    <h2>Result</h2>
-    <pre id="result"></pre>
-  </div>
+  <main class="container">
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SMART ENERGY MANAGEMENT</p>
+
+        <h2>
+          Optimize your energy.
+          <span>Smarter.</span>
+        </h2>
+
+        <p class="hero-text">
+          Convert natural-language operator instructions into
+          validated 24-hour energy schedules using solar,
+          battery and grid resources.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="workspace">
+
+      <!-- INPUT CARD -->
+      <div class="card input-card">
+
+        <div class="card-title">
+          <div>
+            <h3>Energy Scenario</h3>
+            <p>Configure your optimization scenario</p>
+          </div>
+
+          <span class="badge">INPUT</span>
+        </div>
+
+
+        <label for="scenarioId">Scenario ID</label>
+
+        <input
+          id="scenarioId"
+          type="text"
+          value="GRID-101"
+          placeholder="Example: GRID-101"
+        >
+
+
+        <label for="notes">Operator Instructions</label>
+
+        <textarea
+          id="notes"
+          rows="7"
+          placeholder="Example:
+Reduce solar availability by 80% from 1 PM to 3 PM
+Keep at least 6 kWh battery reserve from 6 PM to 10 PM"
+        ></textarea>
+
+
+        <div class="hint">
+          💡 You can enter one or more instructions, one per line.
+        </div>
+
+
+        <button id="optimizeBtn" onclick="optimizeEnergy()">
+          <span>⚡</span>
+          Optimize Energy
+        </button>
+
+      </div>
+
+
+      <!-- RESULT CARD -->
+      <div class="card result-card">
+
+        <div class="card-title">
+          <div>
+            <h3>Optimization Results</h3>
+            <p>Generated 24-hour energy schedule</p>
+          </div>
+
+          <span class="badge success">OUTPUT</span>
+        </div>
+
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">📊</div>
+
+          <h3>No optimization yet</h3>
+
+          <p>
+            Enter operator instructions and click
+            <strong>Optimize Energy</strong> to generate a schedule.
+          </p>
+        </div>
+
+
+        <div id="resultsArea" class="hidden">
+
+          <!-- SUMMARY CARDS -->
+
+          <div class="metrics">
+
+            <div class="metric">
+              <span>Total Grid</span>
+              <strong id="totalGrid">--</strong>
+              <small>kWh</small>
+            </div>
+
+            <div class="metric">
+              <span>Total Cost</span>
+              <strong id="totalCost">--</strong>
+              <small>BDT</small>
+            </div>
+
+            <div class="metric">
+              <span>Peak Grid</span>
+              <strong id="peakGrid">--</strong>
+              <small>kWh</small>
+            </div>
+
+          </div>
+
+
+          <!-- SUMMARY -->
+
+          <div class="summary-box">
+
+            <h4>Optimization Summary</h4>
+
+            <p id="planSummary">
+              --
+            </p>
+
+          </div>
+
+
+          <!-- DIRECTIVES -->
+
+          <div class="section-title">
+            <h4>Interpreted Directives</h4>
+          </div>
+
+          <div id="directives" class="directives">
+          </div>
+
+
+          <!-- 24 HOUR TABLE -->
+
+          <div class="section-title">
+            <h4>24-Hour Energy Plan</h4>
+          </div>
+
+          <div class="table-wrapper">
+
+            <table>
+
+              <thead>
+                <tr>
+                  <th>Hour</th>
+                  <th>Grid</th>
+                  <th>Solar</th>
+                  <th>Battery</th>
+                  <th>Battery Energy</th>
+                </tr>
+              </thead>
+
+              <tbody id="planTable">
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="architecture">
+
+      <div class="card architecture-card">
+
+        <h3>How GridWise Works</h3>
+
+        <div class="flow">
+
+          <div class="flow-item">
+            <div>📝</div>
+            <strong>Operator Notes</strong>
+            <span>Natural language</span>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="flow-item">
+            <div>🤖</div>
+            <strong>LLM</strong>
+            <span>Interpretation</span>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="flow-item">
+            <div>🛡️</div>
+            <strong>Guardrails</strong>
+            <span>Validation</span>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="flow-item">
+            <div>⚙️</div>
+            <strong>Optimizer</strong>
+            <span>24-hour plan</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <footer>
+      GridWise • LLM-Assisted Smart Campus Energy Optimization
+    </footer>
+
+  </main>
+
 
   <script src="script.js"></script>
+
 </body>
 </html>
