@@ -1,20 +1,24 @@
-# GridWise LLM Energy Optimizer
+# ⚡ GridWise — LLM Energy Optimizer
 
-GridWise is an LLM-assisted energy optimization system that converts natural-language operator notes into structured energy directives and generates a 24-hour energy schedule.
+## Overview
 
-## Features
+GridWise is an LLM-assisted smart energy optimization system designed to generate a 24-hour energy schedule from natural-language operator instructions.
 
-- Natural-language operator note interpretation
-- Solar reduction directives
-- Battery reserve constraints
-- Battery charge/discharge constraints
-- Grid usage constraints
-- Guardrail validation
-- 24-hour energy scheduling
-- REST API
-- Web-based interface
+The system manages:
 
-## System Flow
+- Solar energy
+- Battery storage
+- Grid electricity
+- Energy cost
+- Operator constraints
+
+## Problem
+
+Energy operators may need to manage complex energy resources while responding to changing conditions and operational instructions.
+
+GridWise converts natural-language instructions into structured directives and applies them to an energy optimization process.
+
+## How It Works
 
 Operator Notes
 ↓
@@ -24,17 +28,41 @@ Guardrails
 ↓
 Energy Optimizer
 ↓
-24-Hour Energy Plan
+24-Hour Energy Schedule
+↓
+Grid + Solar + Battery Plan
 
-## API
+## Main Features
 
-### Health Check
+- Natural-language operator instructions
+- AI-assisted directive interpretation
+- Safety/validation guardrails
+- Solar utilization
+- Battery management
+- Grid electricity management
+- 24-hour scheduling
+- Cost calculation
+- Peak grid usage calculation
+- Web dashboard
 
-GET `/health`
+## Technologies
 
-### Optimize Energy
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express
+- OpenAI API
 
-POST `/optimize-energy`
+## API Endpoints
+
+### GET /health
+
+Checks whether the server is running.
+
+### POST /optimize-energy
+
+Receives an energy scenario and returns an optimized 24-hour energy plan.
 
 ## Run Locally
 
